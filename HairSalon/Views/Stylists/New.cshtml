@@ -1,0 +1,18 @@
+@{
+    ViewData["Title"] = "Our Stylists";
+}
+
+@model Stylist
+@using HairSalon.Models;
+
+<h3>New Stylist</h3>
+
+<form asp-action="New" asp-controller="Stylists" method="post">
+    @Html.AntiForgeryToken()
+    <label asp-for="Name">Name</label>
+    <input asp-for="Name" />
+    <button type="submit">Add Stylist</button>
+    <span asp-validation-for="Name" class="text-danger"></span>
+</form>
+
+@Html.ValidationSummary(true, "", new { @class="text-danger" })

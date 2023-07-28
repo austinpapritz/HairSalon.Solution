@@ -3,8 +3,13 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-builder.Services.AddControllersWithViews();
+// Add services to the container
+builder.Services.AddControllersWithViews(options =>
+{
+  // Error handling
+  options.ModelBindingMessageProvider.SetValueMustNotBeNullAccessor(
+      _ => "This field is required.");
+}).AddDataAnnotationsLocalization();
 
 builder.Services.AddDbContext<HairSalonContext>(
                         dbContextOptions => dbContextOptions

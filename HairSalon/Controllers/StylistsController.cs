@@ -38,5 +38,28 @@ public class StylistsController : Controller
         ViewBag.Stylist = currentStylist;
 
         return View(model);
+
+    }
+    public IActionResult New()
+    {
+        // Send in a new Stylist object for error handling 
+        return View(new Stylist());
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public IActionResult New([Bind("Name")] Stylist stylist)
+    {
+        // If valid stylist is returned from form add to db
+        if (ModelState.IsValid)
+        {
+            _db.Stylists.Add(stylist);
+            _db.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+        // If not, reload New page with error
+        ModelState.AddModelError("", "Make sure every field is filled with the correct data type.");
+        return View(stylist);
     }
 }
