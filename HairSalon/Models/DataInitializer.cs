@@ -2,7 +2,7 @@ namespace HairSalon.Models;
 
 public class DataInitializer
 {
-    public InitializeData(WebApplication app)
+    public static void InitializeData(WebApplication app)
     {
         // initial data goes here
     }

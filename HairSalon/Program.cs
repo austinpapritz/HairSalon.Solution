@@ -17,7 +17,7 @@ builder.Services.AddDbContext<HairSalonContext>(
 var app = builder.Build();
 
 // DEVELOPMENT ONLY
-DataInitializer.InitializeData();
+DataInitializer.InitializeData(app);
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
