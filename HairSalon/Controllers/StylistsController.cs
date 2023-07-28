@@ -42,8 +42,7 @@ public class StylistsController : Controller
     }
     public IActionResult New()
     {
-        // Send in a new Stylist object for error handling 
-        return View(new Stylist());
+        return View();
     }
 
     [HttpPost]
@@ -58,9 +57,7 @@ public class StylistsController : Controller
 
             return RedirectToAction("Index");
         }
-        // If not, reload New page with error
-        ModelState.AddModelError("", "Make sure every field is filled with the correct data type.");
-        return View(stylist);
+        return View();
     }
 
     [HttpPost]
