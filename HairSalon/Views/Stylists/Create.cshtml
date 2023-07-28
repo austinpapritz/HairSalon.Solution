@@ -1,5 +1,5 @@
 @{
-    ViewData["Title"] = "Our Stylists";
+    ViewData["Title"] = "New Stylist";
 }
 
 @model Stylist
@@ -7,7 +7,7 @@
 
 <h3>New Stylist</h3>
 
-<form asp-action="New" asp-controller="Stylists" method="post">
+<form asp-action="Create" asp-controller="Stylists" method="post">
     @Html.AntiForgeryToken()
     <label asp-for="Name">Name: </label>
     <input asp-for="Name" />
