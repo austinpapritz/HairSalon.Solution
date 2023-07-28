@@ -14,6 +14,11 @@ public class ClientsController : Controller
     {
         _db = db;
     }
+
+    public IActionResult Index()
+    {
+        return View();
+    }
     public IActionResult Create()
     {
         // Fetch all Stylists from the database
@@ -23,6 +28,21 @@ public class ClientsController : Controller
         Debug.WriteLine("Number of stylists: " + stylists.Count);
 
         ViewBag.Stylists = new SelectList(_db.Stylists, "StylistId", "Name");
+        return View();
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public IActionResult Create([Bind("Name,StylistId")] Client client)
+    {
+        if (ModelState.IsValid)
+        {
+            _db.Clients.Add(client);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        // If anything goes wrong, reload the form
+        ViewBag.StylistId = new SelectList(_db.Stylists, "StylistId", "Name", client.StylistId);
         return View();
     }
 }
