@@ -62,4 +62,22 @@ public class StylistsController : Controller
         ModelState.AddModelError("", "Make sure every field is filled with the correct data type.");
         return View(stylist);
     }
+
+    [HttpPost]
+    public IActionResult Delete(int id)
+    {
+        Stylist stylistToBeDeleted = _db.Stylists.FirstOrDefault(s => s.StylistId == id);
+
+        if (stylistToBeDeleted == null)
+        {
+            return NotFound();
+        }
+
+        _db.Stylists.Remove(stylistToBeDeleted);
+        _db.SaveChanges();
+
+        // AJAX call in site.js is expecting Ok() before it reloads the page
+        return Ok();
+    }
+
 }

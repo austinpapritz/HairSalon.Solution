@@ -13,6 +13,9 @@
 <ol>
     @foreach (Stylist stylist in Model)
     {
-        <li><a href="/stylists/details/@stylist.StylistId">@stylist.Name</a></li>
+        <li>
+            <a href="/stylists/details/@stylist.StylistId">@stylist.Name</a>
+            <a href="#" data-id="@stylist.StylistId" class="delete-link">❌</a>
+        </li>
     }
 </ol>
