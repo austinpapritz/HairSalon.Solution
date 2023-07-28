@@ -49,6 +49,7 @@ namespace HairSalon.Migrations
                         .HasColumnType("longtext");
 
                     b.Property<string>("Specialty")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<decimal>("Wage")

@@ -10,10 +10,11 @@ public class Stylist
     }
 
     public int StylistId { get; set; }
-
     [Required]
-    public string? Name { get; set; }
-    public string? Specialty { get; set; }
+    public string Name { get; set; }
+    [Required]
+    public string Specialty { get; set; }
+    [Required]
     public decimal Wage { get; set; }
     public ICollection<Client> Clients { get; set; }
 }

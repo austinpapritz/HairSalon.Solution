@@ -48,7 +48,7 @@ public class StylistsController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public IActionResult New([Bind("Name")] Stylist stylist)
+    public IActionResult New([Bind("Name,Specialty,Wage")] Stylist stylist)
     {
         // If valid stylist is returned from form add to db
         if (ModelState.IsValid)

@@ -20,7 +20,7 @@ namespace HairSalon.Migrations
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Name = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Specialty = table.Column<string>(type: "longtext", nullable: true)
+                    Specialty = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Wage = table.Column<decimal>(type: "decimal(65,30)", nullable: false)
                 },

@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HairSalon.Migrations
 {
     [DbContext(typeof(HairSalonContext))]
-    [Migration("20230728205000_FixModels")]
+    [Migration("20230728211604_FixModels")]
     partial class FixModels
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -51,6 +51,7 @@ namespace HairSalon.Migrations
                         .HasColumnType("longtext");
 
                     b.Property<string>("Specialty")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<decimal>("Wage")
