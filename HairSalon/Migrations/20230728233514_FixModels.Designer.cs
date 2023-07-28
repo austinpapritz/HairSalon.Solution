@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HairSalon.Migrations
 {
     [DbContext(typeof(HairSalonContext))]
-    [Migration("20230728211604_FixModels")]
+    [Migration("20230728233514_FixModels")]
     partial class FixModels
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

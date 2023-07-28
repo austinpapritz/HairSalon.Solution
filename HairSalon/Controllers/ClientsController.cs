@@ -21,12 +21,6 @@ public class ClientsController : Controller
     }
     public IActionResult Create()
     {
-        // Fetch all Stylists from the database
-        var stylists = _db.Stylists.ToList();
-
-        // Print the count of Stylists for debugging
-        Debug.WriteLine("Number of stylists: " + stylists.Count);
-
         ViewBag.Stylists = new SelectList(_db.Stylists, "StylistId", "Name");
         return View();
     }
@@ -35,14 +29,11 @@ public class ClientsController : Controller
     [ValidateAntiForgeryToken]
     public IActionResult Create([Bind("Name,StylistId")] Client client)
     {
-        if (ModelState.IsValid)
-        {
-            _db.Clients.Add(client);
-            _db.SaveChanges();
-            return RedirectToAction("Index");
-        }
-        // If anything goes wrong, reload the form
-        ViewBag.StylistId = new SelectList(_db.Stylists, "StylistId", "Name", client.StylistId);
-        return View();
+
+        // client.stylist = _db.Stylists
+        //                     .FirstOrDefault(s => s.StylistId == client.StylistId);
+        _db.Clients.Add(client);
+        _db.SaveChanges();
+        return RedirectToAction("details", "stylists", new { id = client.StylistId });
     }
 }
