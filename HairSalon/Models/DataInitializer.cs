@@ -1,3 +1,4 @@
+//FOR DEVELOPMENT ONLY
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 
@@ -7,19 +8,19 @@ public class DataInitializer
 {
     public static void InitializeData(WebApplication app)
     {
-        using (var serviceScope = app.Services.CreateScope())
+        using (var scope = app.Services.CreateScope())
         {
-            var context = serviceScope.ServiceProvider.GetRequiredService<HairSalonContext>();
-            // Apply any pending migrations
+            var context = scope.ServiceProvider.GetRequiredService<HairSalonContext>();
+            // Apply any pending migrations.
             context.Database.Migrate();
 
-            // If there are any stylists already, don't seed again
+            // If there are any stylists already, don't run.
             if (context.Stylists.Any())
             {
                 return;
             }
 
-            // Add 3 stylists
+            // Add 3 stylists.
             var stylists = new Stylist[]
             {
                 new Stylist { Name = "Stylist 1" },
@@ -30,13 +31,14 @@ public class DataInitializer
             context.Stylists.AddRange(stylists);
             context.SaveChanges();
 
-            // For each stylist, add 3 clients
+            // For each stylist, add 3 clients with unique names.
+            int clientCounter = 1;
             foreach (var stylist in stylists)
             {
                 context.Clients.AddRange(
-                    new Client { Name = "Client 1", StylistId = stylist.StylistId },
-                    new Client { Name = "Client 2", StylistId = stylist.StylistId },
-                    new Client { Name = "Client 3", StylistId = stylist.StylistId }
+                    new Client { Name = "Client " + clientCounter++, StylistId = stylist.StylistId },
+                    new Client { Name = "Client " + clientCounter++, StylistId = stylist.StylistId },
+                    new Client { Name = "Client " + clientCounter++, StylistId = stylist.StylistId }
                 );
             }
             context.SaveChanges();

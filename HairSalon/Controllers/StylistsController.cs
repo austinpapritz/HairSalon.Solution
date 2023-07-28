@@ -1,6 +1,6 @@
-using System.Diagnostics;
-using Microsoft.AspNetCore.Mvc;
 using HairSalon.Models;
+using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics;
 
 namespace HairSalon.Controllers;
 
@@ -15,6 +15,7 @@ public class StylistsController : Controller
 
     public IActionResult Index()
     {
-        return View();
+        List<Stylist> model = _db.Stylists.ToList();
+        return View(model);
     }
 }
