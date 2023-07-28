@@ -23,9 +23,10 @@ public class DataInitializer
             // Add 3 stylists.
             var stylists = new Stylist[]
             {
-                new Stylist { Name = "Stylist 1" },
-                new Stylist { Name = "Stylist 2" },
-                new Stylist { Name = "Stylist 3" }
+                new Stylist { Name = "Stella Mae DuPont", Specialty= "Straight hair", Wage = 22.22m },
+                new Stylist { Name = "Casey Montana", Specialty= "Coloring", Wage = 21.5m  },
+                new Stylist { Name = "Alejandra Morales", Specialty= "Curly hair", Wage = 24.75m },
+                new Stylist { Name = "Calvin Saitama", Specialty= "Facial hair", Wage = 19.98m }
             };
 
             context.Stylists.AddRange(stylists);

@@ -13,5 +13,7 @@ public class Stylist
 
     [Required]
     public string? Name { get; set; }
+    public string? Specialty { get; set; }
+    public decimal Wage { get; set; }
     public ICollection<Client> Clients { get; set; }
 }
