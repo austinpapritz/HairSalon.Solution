@@ -16,9 +16,6 @@ builder.Services.AddDbContext<HairSalonContext>(
 
 var app = builder.Build();
 
-// DEVELOPMENT ONLY
-DataInitializer.InitializeData(app);
-
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
@@ -31,3 +28,6 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
+
+// DEVELOPMENT ONLY
+DataInitializer.InitializeData(app);
