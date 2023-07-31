@@ -33,7 +33,9 @@
     @* Wage *@
     <div class="form-group">
         <label asp-for="Wage" class="control-label">Wage: </label>
-        <input asp-for="Wage" class="form-control" value="0.00" />
+        <div class="wage-input">
+            <input asp-for="Wage" class="form-control wage-input" value="@ViewData["WageValue"]" />
+        </div>
         <span asp-validation-for="Wage" class="text-danger"></span>
     </div>
 

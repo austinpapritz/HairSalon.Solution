@@ -45,6 +45,7 @@ public class StylistsController : Controller
         // Both Create() and Edit() use `Create.cshtml`
         ViewData["FormAction"] = "Create";
         ViewData["SubmitButton"] = "Add Stylist";
+        ViewData["WageValue"] = "0.00";
         return View();
     }
 
@@ -75,6 +76,7 @@ public class StylistsController : Controller
         // Both Create() and Edit() use `Create.cshtml`
         ViewData["FormAction"] = "Edit";
         ViewData["SubmitButton"] = "Update Stylist";
+        ViewData["WageValue"] = stylistToBeEdited.Wage;
 
         return View("Create", stylistToBeEdited);
     }
@@ -90,6 +92,7 @@ public class StylistsController : Controller
 
         if (ModelState.IsValid)
         {
+            // Try-catch ensures stylist is in database.
             try
             {
                 _db.Update(stylist);
@@ -106,7 +109,7 @@ public class StylistsController : Controller
                     throw;
                 }
             }
-            return RedirectToAction("Index");
+            return RedirectToAction("Details", new { id = stylist.StylistId });
         }
         return RedirectToAction("Edit", new { id = stylist.StylistId });
     }

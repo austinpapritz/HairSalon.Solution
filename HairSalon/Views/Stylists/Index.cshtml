@@ -13,10 +13,13 @@
 <ol>
     @foreach (Stylist stylist in Model)
     {
-        <li>
-            <a href="/stylists/details/@stylist.StylistId">@stylist.Name</a>
+        <li>@stylist.Name
+            @* See Stylist details *@
+            <a href="/stylists/details/@stylist.StylistId" class="emoji">🔍</a>
+            @* Edit Stylist *@
+            <a href="/stylists/edit/@stylist.StylistId" class="emoji">✏️</a>
+            @* wwwroot/js/site.js handles delete *@
             <a href="#" data-id="@stylist.StylistId" class="delete-link emoji">❌</a>
-            <a href="/stylists/edit/@stylist.StylistId" data-id="@stylist.StylistId" class="edit-link emoji">✏️</a>
         </li>
     }
 </ol>
