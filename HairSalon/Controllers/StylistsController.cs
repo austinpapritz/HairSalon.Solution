@@ -80,6 +80,7 @@ public class StylistsController : Controller
     }
 
     [HttpPost]
+    [ValidateAntiForgeryToken]
     public IActionResult Edit(int id, [Bind("StylistId,Name,Specialty,Wage")] Stylist stylist)
     {
         if (id != stylist.StylistId)
@@ -87,10 +88,27 @@ public class StylistsController : Controller
             return NotFound();
         }
 
-        _db.Update(stylist);
-        _db.SaveChanges();
-
-        return RedirectToAction("Index");
+        if (ModelState.IsValid)
+        {
+            try
+            {
+                _db.Update(stylist);
+                _db.SaveChanges();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!StylistExists(stylist.StylistId))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+            return RedirectToAction("Index");
+        }
+        return RedirectToAction("Edit", new { id = stylist.StylistId });
     }
 
     private bool StylistExists(int id)
