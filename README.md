@@ -8,7 +8,12 @@
 
 * _C#_
 * _.NET_
+* _JavaScript_
+* _HTML/CSS_
+* _MySQL_
 * _Visual Studio Code_
+* _Entity Framework Core_
+* _AJAX_
 
 ## Description
 
@@ -31,6 +36,8 @@ _If there's no deployable site do the following:_
 _/clients/edit routes are incomplete_
 
 ## License
+
+_favicon downloaded https://www.flaticon.com_
 
 _This app is not licensed and is free to use and distribute._
 _If you run in to any problems or have any suggestions/improvements, feel free to contact me on [linkedIn](https://www.linkedin.com/in/austin-papritz)!_
