@@ -2,9 +2,14 @@
 for details on configuring this project to bundle and minify static web assets. */
 
 a.navbar-brand {
+  font-family: 'Dancing Script', cursive;
   white-space: normal;
   text-align: center;
   word-break: break-all;
+}
+
+.navbar-nav {
+  justify-content: flex-end;
 }
 
 a {

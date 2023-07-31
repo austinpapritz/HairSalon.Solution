@@ -38,7 +38,6 @@ public class StylistsController : Controller
         ViewBag.Stylist = currentStylist;
 
         return View(model);
-
     }
     public IActionResult Create()
     {
