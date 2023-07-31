@@ -15,6 +15,12 @@ namespace HairSalon.Models
         {
             // Build the Stylist Entity
             modelBuilder.Entity<Stylist>()
+                // Wage can only have 2 decimal places.
+                .Property(s => s.Wage)
+                .HasPrecision(4, 2);
+
+            // Build the Stylist Entity
+            modelBuilder.Entity<Stylist>()
                 // Stylist HasMany Clients
                 .HasMany(s => s.Clients)
                 // Client only WithOne stylist
