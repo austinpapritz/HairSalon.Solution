@@ -7,8 +7,14 @@
 
 <h3>New Stylist</h3>
 
-<form asp-action="Create" asp-controller="Stylists" method="post">
+<form asp-action="@ViewData["FormAction"]" asp-controller="Stylists" method="post">
     @Html.AntiForgeryToken()
+
+    @* IF form is being used to edit, then attach the StylistId to model. *@
+    @if (Model != null && Model.StylistId != 0)
+    {
+        @Html.HiddenFor(m => m.StylistId)
+    }
 
     @* Name *@
     <div class="form-group">   
@@ -32,7 +38,7 @@
     </div>
 
     <div class="form-group">
-        <input type="submit" value="Add Stylist" class="btn btn-primary" />
+        <input type="submit" value="@ViewData["SubmitButton"]" class="btn btn-primary" />
     </div>
 </form>
 

@@ -19,10 +19,6 @@
 <ol>
     @foreach (Client client in Model)
     {
-        <li>
-            @* <a href="/clients/details/{@client.ClientId}"> *@
-            @client.Name
-            @* </a> *@
-            </li>
+        <li>@client.Name</li>
     }
 </ol>

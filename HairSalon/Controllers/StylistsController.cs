@@ -42,6 +42,9 @@ public class StylistsController : Controller
     }
     public IActionResult Create()
     {
+        // Both Create() and Edit() use `Create.cshtml`
+        ViewData["FormAction"] = "Create";
+        ViewData["SubmitButton"] = "Add Stylist";
         return View();
     }
 
@@ -58,6 +61,22 @@ public class StylistsController : Controller
             return RedirectToAction("Index");
         }
         return View();
+    }
+
+    public IActionResult Edit(int id)
+    {
+        Stylist stylistToBeEdited = _db.Stylists.FirstOrDefault(s => s.StylistId == id);
+
+        if (stylistToBeEdited == null)
+        {
+            return NotFound();
+        }
+
+        // Both Create() and Edit() use `Create.cshtml`
+        ViewData["FormAction"] = "Edit";
+        ViewData["SubmitButton"] = "Update Stylist";
+
+        return View("Create", stylistToBeEdited);
     }
 
     // Handled by wwwroot/js/site.js.
@@ -77,5 +96,4 @@ public class StylistsController : Controller
         // Return HTTP 200 OK to AJAX request, signalling successful deletion.
         return Ok();
     }
-
 }
