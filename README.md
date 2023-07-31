@@ -34,6 +34,7 @@ _If there's no deployable site do the following:_
 ## Known Bugs
 
 _/clients/edit routes are incomplete_
+_New Stylist form reloads incorrectly if filled out wrong the first time_
 
 ## License
 
