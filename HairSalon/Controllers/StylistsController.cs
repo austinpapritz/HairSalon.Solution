@@ -79,6 +79,25 @@ public class StylistsController : Controller
         return View("Create", stylistToBeEdited);
     }
 
+    [HttpPost]
+    public IActionResult Edit(int id, [Bind("StylistId,Name,Specialty,Wage")] Stylist stylist)
+    {
+        if (id != stylist.StylistId)
+        {
+            return NotFound();
+        }
+
+        _db.Update(stylist);
+        _db.SaveChanges();
+
+        return RedirectToAction("Index");
+    }
+
+    private bool StylistExists(int id)
+    {
+        return _db.Stylists.Any(e => e.StylistId == id);
+    }
+
     // Handled by wwwroot/js/site.js.
     [HttpPost]
     public IActionResult Delete(int id)
