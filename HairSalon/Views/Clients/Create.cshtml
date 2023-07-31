@@ -8,6 +8,7 @@
 <h1>New Client</h1>
 
 <form asp-action="create" method="post">
+    @Html.AntiForgeryToken()
     <div class="form-group">
         <label asp-for="Name" class="control-label">Name: </label>
         <input asp-for="Name" class="form-control" />

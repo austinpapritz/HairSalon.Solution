@@ -6,7 +6,7 @@
 }
 
 <h1>Our Clients</h1>
-<!-- Add a form for reassigning a stylist. -->
+
 <form asp-controller="clients" asp-action="edit" method="post">
     <div class="form-group">
     <label for="Name" class="control-label">Client and Stylist </label>
@@ -14,7 +14,7 @@
         <select id="clientId" name="clientId">
             @foreach (Client client in Model)
             {
-                <option value="@client.Id">@client.Name 💠 @client.Stylist.Name</option>
+                <option value="@client.ClientId">@client.Name 💠 @client.Stylist.Name</option>
             }
         </select>
     }

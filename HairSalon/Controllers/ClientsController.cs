@@ -15,6 +15,7 @@ public class ClientsController : Controller
         _db = db;
     }
 
+    // GET CLIENT LIST
     public IActionResult Index()
     {
         List<Client> model = _db.Clients.Include(c => c.Stylist).ToList();
@@ -22,21 +23,24 @@ public class ClientsController : Controller
         return View(model);
     }
 
+    // POST EDIT REASSIGN STYLIST TO CLIENT
     [HttpPost]
     public IActionResult Edit([Bind("Name,StylistId")] Client client)
     {
         _db.Clients.Update(client);
         _db.SaveChanges();
 
-        return RedirectToAction("Details", "Stylists", new { id = client.StylistId });
+        return RedirectToAction("details", "stylists", new { id = client.StylistId });
     }
 
+    // GET NEW CLIENT FORM
     public IActionResult Create()
     {
         ViewBag.Stylists = new SelectList(_db.Stylists, "StylistId", "Name");
         return View();
     }
 
+    // POST NEW CLIENT
     [HttpPost]
     [ValidateAntiForgeryToken]
     public IActionResult Create([Bind("Name,StylistId")] Client client)
