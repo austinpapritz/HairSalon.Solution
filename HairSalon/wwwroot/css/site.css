@@ -21,9 +21,14 @@ body {
   margin-bottom: 60px;
 }
 
+
 .wage-input::before {
   content: "$";
   position: absolute;
   margin-left: 3.75px;
   margin-top: 7px; 
+}
+
+.emoji {
+  text-decoration: none;
 }

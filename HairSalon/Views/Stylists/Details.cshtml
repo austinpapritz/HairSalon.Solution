@@ -3,7 +3,12 @@
 }
 @using HairSalon.Models;
 
-<h1>@ViewBag.Stylist.Name</h1>
+<h1>@ViewBag.Stylist.Name            
+    @* Edit Stylist *@
+    <a href="/stylists/edit/@ViewBag.Stylist.StylistId" class="emoji">✏️</a>
+    @* wwwroot/js/site.js handles delete *@
+    <a href="#" data-id="@ViewBag.Stylist.StylistId" class="delete-link emoji">❌</a>
+</h1>
 <h5>Specialty: @ViewBag.Stylist.Specialty</h5>
 <h5>Wage: $@ViewBag.Stylist.Wage</h5>
 

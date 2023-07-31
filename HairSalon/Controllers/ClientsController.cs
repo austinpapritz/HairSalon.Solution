@@ -29,9 +29,6 @@ public class ClientsController : Controller
     [ValidateAntiForgeryToken]
     public IActionResult Create([Bind("Name,StylistId")] Client client)
     {
-
-        // client.stylist = _db.Stylists
-        //                     .FirstOrDefault(s => s.StylistId == client.StylistId);
         _db.Clients.Add(client);
         _db.SaveChanges();
         return RedirectToAction("details", "stylists", new { id = client.StylistId });
