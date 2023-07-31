@@ -12,8 +12,9 @@ deleteLinks.forEach((deleteLink) => {
         
         // Ask user for confirmation.
         if (confirm('Are you sure you want to delete this stylist?')) {
-            // Initiates an AJAX request.
+            // Initiates an AJAX request on confirmation.
             $.ajax({
+                // Route and type of request.
                 url: url,
                 type: 'POST',
                 // Delete route requires an Id.

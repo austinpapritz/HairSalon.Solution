@@ -9,19 +9,31 @@
 
 <form asp-action="Create" asp-controller="Stylists" method="post">
     @Html.AntiForgeryToken()
-    <label asp-for="Name">Name: </label>
-    <input asp-for="Name" />
-    <span asp-validation-for="Name" class="text-danger"></span>
 
-    <label asp-for="Specialty">Specialty: </label>
-    <input asp-for="Specialty" />
-    <span asp-validation-for="Specialty" class="text-danger"></span>
+    @* Name *@
+    <div class="form-group">   
+        <label asp-for="Name" class="control-label">Name: </label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    
+    @* Specialty *@
+    <div class="form-group">
+        <label asp-for="Specialty" class="control-label">Specialty: </label>
+        <input asp-for="Specialty" class="form-control" />
+        <span asp-validation-for="Specialty" class="text-danger"></span>
+    </div>
 
-    <label asp-for="Wage">Wage: </label>
-    <input asp-for="Wage" />
-    <span asp-validation-for="Wage" class="text-danger"></span>
+    @* Wage *@
+    <div class="form-group">
+        <label asp-for="Wage" class="control-label">Wage: </label>
+        <input asp-for="Wage" class="form-control" value="0.00" />
+        <span asp-validation-for="Wage" class="text-danger"></span>
+    </div>
 
-    <button type="submit">Add Stylist</button>
+    <div class="form-group">
+        <input type="submit" value="Add Stylist" class="btn btn-primary" />
+    </div>
 </form>
 
 @Html.ValidationSummary(true, "", new { @class="text-danger" })

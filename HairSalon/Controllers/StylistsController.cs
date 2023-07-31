@@ -60,6 +60,7 @@ public class StylistsController : Controller
         return View();
     }
 
+    // Handled by wwwroot/js/site.js.
     [HttpPost]
     public IActionResult Delete(int id)
     {
@@ -73,7 +74,7 @@ public class StylistsController : Controller
         _db.Stylists.Remove(stylistToBeDeleted);
         _db.SaveChanges();
 
-        // AJAX call in site.js is expecting Ok() before it reloads the page
+        // Return HTTP 200 OK to AJAX request, signalling successful deletion.
         return Ok();
     }
 
