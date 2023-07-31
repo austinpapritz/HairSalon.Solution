@@ -28,7 +28,7 @@ _If there's no deployable site do the following:_
 
 ## Known Bugs
 
-_none_
+_/clients/edit routes are incomplete_
 
 ## License
 

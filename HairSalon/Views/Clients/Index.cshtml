@@ -7,14 +7,14 @@
 
 <h1>Our Clients</h1>
 <!-- Add a form for reassigning a stylist. -->
-<form asp-controller="Clients" asp-action="ReassignStylist" method="post">
+<form asp-controller="clients" asp-action="edit" method="post">
     <div class="form-group">
-    <label for="clientName" class="control-label">Client and Stylist </label>
+    <label for="Name" class="control-label">Client and Stylist </label>
      @if (Model != null){
-        <select id="stylistId" name="stylistId">
+        <select id="clientId" name="clientId">
             @foreach (Client client in Model)
             {
-                <option value="@client.Name">@client.Name 💠 @client.Stylist.Name</option>
+                <option value="@client.Id">@client.Name 💠 @client.Stylist.Name</option>
             }
         </select>
     }

@@ -22,6 +22,15 @@ public class ClientsController : Controller
         return View(model);
     }
 
+    [HttpPost]
+    public IActionResult Edit([Bind("Name,StylistId")] Client client)
+    {
+        _db.Clients.Update(client);
+        _db.SaveChanges();
+
+        return RedirectToAction("Details", "Stylists", new { id = client.StylistId });
+    }
+
     public IActionResult Create()
     {
         ViewBag.Stylists = new SelectList(_db.Stylists, "StylistId", "Name");
