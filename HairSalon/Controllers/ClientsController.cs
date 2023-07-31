@@ -17,8 +17,11 @@ public class ClientsController : Controller
 
     public IActionResult Index()
     {
-        return View();
+        List<Client> model = _db.Clients.Include(c => c.Stylist).ToList();
+        ViewBag.Stylists = _db.Stylists.ToList();
+        return View(model);
     }
+
     public IActionResult Create()
     {
         ViewBag.Stylists = new SelectList(_db.Stylists, "StylistId", "Name");

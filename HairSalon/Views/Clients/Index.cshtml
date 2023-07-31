@@ -1,5 +1,38 @@
+@model List<Client>
+@using HairSalon.Models;
+
 @{
-    ViewData["Title"] = "Our Clients";
+    ViewData["Title"] = "Clients Index";
 }
 
 <h1>Our Clients</h1>
+<!-- Add a form for reassigning a stylist. -->
+<form asp-controller="Clients" asp-action="ReassignStylist" method="post">
+    <div class="form-group">
+    <label for="clientName" class="control-label">Client and Stylist </label>
+     @if (Model != null){
+        <select id="stylistId" name="stylistId">
+            @foreach (Client client in Model)
+            {
+                <option value="@client.Name">@client.Name 💠 @client.Stylist.Name</option>
+            }
+        </select>
+    }
+    </div>
+
+    <div class="form-group">
+    <label for="stylistId" class="control-label">REASSIGN STYLIST: </label>
+    @if (ViewBag.Stylists != null){
+        <select id="stylistId" name="stylistId">
+            @foreach (Stylist stylist in ViewBag.Stylists)
+            {
+                <option value="@stylist.StylistId">@stylist.Name</option>
+            }
+        </select>
+    }
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Reassign" class="btn btn-primary" />
+    </div>
+</form>

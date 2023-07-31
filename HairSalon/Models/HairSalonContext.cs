@@ -24,7 +24,7 @@ namespace HairSalon.Models
                 // Stylist HasMany Clients
                 .HasMany(s => s.Clients)
                 // Client only WithOne stylist
-                .WithOne(c => c.stylist)
+                .WithOne(c => c.Stylist)
                 // Identify a Client's Stylist with the StylistId fk
                 .HasForeignKey(c => c.StylistId);
         }
