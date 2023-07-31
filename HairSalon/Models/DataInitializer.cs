@@ -10,17 +10,18 @@ public class DataInitializer
     {
         using (var scope = app.Services.CreateScope())
         {
+            // Grab the context from HairSalonContext.
             var context = scope.ServiceProvider.GetRequiredService<HairSalonContext>();
             // Apply any pending migrations.
             context.Database.Migrate();
 
-            // If there are any stylists already, don't run.
+            // If there are already stylists in db, don't run.
             if (context.Stylists.Any())
             {
                 return;
             }
 
-            // Add 3 stylists.
+            // Add 4 stylists.
             var stylists = new Stylist[]
             {
                 new Stylist { Name = "Stella Mae DuPont", Specialty= "Straight hair", Wage = 22.22m },
