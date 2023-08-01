@@ -2,7 +2,7 @@
 
 #### By _Austin Papritz_
 
-#### _This web application serves to organize Claire's client and employee data!_
+#### _This web application serves to organize Eau Claire's client and employee data!_
 
 ## Technologies Used
 
@@ -24,7 +24,7 @@ _Eau Claire's Salon Client App is a web app that allows the user to see the list
 * _`Download ZIP` by clicking on the big green `Code` button._
 * _Extract the ZIP to a designated location._
 * _Open the `HairSalon.Solution` folder in your favorite code editor (e.g., VS Code, Xcode, Atom)._
-* _Open the terminal, navigate to the project folder by entering `$ cd .\HairSalon\`
+* _Open the terminal, navigate to the project folder by entering `$ cd .\HairSalon\`_
 
 ## Database Setup
 
