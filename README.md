@@ -53,8 +53,8 @@ _Eau Claire's Salon Client App is a web app that allows the user to see the list
 
 ## Known Bugs
 
-_/clients/edit routes are incomplete_
-_New Stylist form reloads incorrectly if filled out wrong the first time_
+* _/clients/edit routes are incomplete_
+* _New Stylist form reloads incorrectly if filled out wrong the first time_
 
 ## License
 
