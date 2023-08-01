@@ -39,12 +39,12 @@ _Eau Claire's Salon Client App is a web app that allows the user to see the list
 }
 ```
 
+* _Build project by entering `$ dotnet build`._
 * _Initialize the database by entering `$ dotnet EF migrations add InitialSetup`._
 * _Complete database setup by entering `$ dotnet EF database update`._
 
 ## Run Web App
 
-* _Enter `$ dotnet build`._
 * _Enter `$ dotnet watch run` to run the web app._
 * _Open your browser and enter `https://localhost:5012/` into the url bar, if it doesn't automatically._
 * _You may need to give yourself security certs by entering `$ dotnet dev-certs https --trust`._
