@@ -49,7 +49,7 @@ public class StylistsController : Controller
         ViewData["FormAction"] = "Create";
         ViewData["SubmitButton"] = "Add Stylist";
         ViewData["WageValue"] = "0.00";
-        return View();
+        return View("Form");
     }
 
     // POST CREATE NEW STYLIST
@@ -79,12 +79,12 @@ public class StylistsController : Controller
             return NotFound();
         }
 
-        // Both Create() and Edit() use `Create.cshtml`.
+        // Both Create() and Edit() use `Form.cshtml`.
         ViewData["FormAction"] = "Edit";
         ViewData["SubmitButton"] = "Update Stylist";
         ViewData["WageValue"] = stylistToBeEdited.Wage;
 
-        return View("create", stylistToBeEdited);
+        return View("Form", stylistToBeEdited);
     }
 
     // POST EDIT STYLIST
