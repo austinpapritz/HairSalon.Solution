@@ -66,7 +66,7 @@ public class StylistsController : Controller
 
             return RedirectToAction("Index");
         }
-        return View();
+        return View("Form");
     }
 
     // GET EDIT STYLIST FORM
