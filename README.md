@@ -10,6 +10,7 @@
 * _.NET_
 * _JavaScript_
 * _HTML/CSS_
+* _jQuery_ 
 * _MySQL_
 * _Visual Studio Code_
 * _Entity Framework Core_
