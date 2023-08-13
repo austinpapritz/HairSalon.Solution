@@ -13,7 +13,7 @@
 * _MySQL_
 * _Visual Studio Code_
 * _Entity Framework Core_
-* _AJAX_
+* _JQuery_
 
 ## Description
 
@@ -40,13 +40,12 @@ _Eau Claire's Salon Client App is a web app that allows the user to see the list
 ```
 
 * _Build project by entering `$ dotnet build`._
-* _Initialize the database by entering `$ dotnet EF migrations add InitialSetup`._
 * _Complete database setup by entering `$ dotnet EF database update`._
 
 ## Run Web App
 
 * _Enter `$ dotnet watch run` to run the web app._
-* _Open your browser and enter `https://localhost:5012/` into the url bar, if it doesn't automatically._
+* _Your browser should automatically open._
 * _You may need to give yourself security certs by entering `$ dotnet dev-certs https --trust`._
 * _There will be a confirmation pop-up in your browser, you might also need to click `Advanced` and then click to proceed to site_
 * _Enjoy!_
@@ -61,4 +60,5 @@ _Eau Claire's Salon Client App is a web app that allows the user to see the list
 _favicon downloaded from https://www.flaticon.com_
 
 _This app is not licensed and is free to use and distribute._
-_If you run in to any problems or have any suggestions/improvements, feel free to contact me on [linkedIn](https://www.linkedin.com/in/austin-papritz)!_
+
+_If you run in to any problems or have any suggestions, feel free to contact me on [linkedIn](https://www.linkedin.com/in/austin-papritz)!_
